@@ -2,7 +2,7 @@ import streamlit as st
 
 from lab_01 import lab1_1
 #from lab_02 import lab2_3
-#from nirs import nir
+from nirs import nir
 
 
 # st.set_page_config(initial_sidebar_state="collapsed")
@@ -33,6 +33,9 @@ def main():
 
     if lab[:1] == "1":
         lab1_1.main()
+
+    elif lab[:1] == "3":
+        nir.main()
 
     '''elif lab[:1] == "2":
         lab2_3.main()
