@@ -1,12 +1,13 @@
 import streamlit as st
 
 from lab_01 import lab1_1
-#from lab_02 import lab2_3
+from lab_02 import lab2_1
 from nirs import nir
 
 
 # st.set_page_config(initial_sidebar_state="collapsed")
 st.sidebar.image('logo.png', width=300)
+
 
 def header():
     author = '''
@@ -19,6 +20,7 @@ def header():
     st.markdown("**Преподаватель:** Градов В.М.")
     st.markdown("**Студент:** Ткаченко В.М.")
     st.sidebar.markdown(author)
+
 
 def main():
     header()
@@ -34,20 +36,12 @@ def main():
     if lab[:1] == "1":
         lab1_1.main()
 
+    elif lab[:1] == "2":
+        lab2_1.main()
+
     elif lab[:1] == "3":
         nir.main()
 
-    '''elif lab[:1] == "2":
-        lab2_3.main()
-
-    elif lab[:1] == "3":
-        lab_3.main()
-
-    elif lab[:1] == "4":
-        lab_4.main()
-
-    elif lab[:1] == "5":
-        nir.main()'''
 
 if __name__ == "__main__":
     main()
