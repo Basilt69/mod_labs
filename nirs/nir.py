@@ -9,27 +9,27 @@ np.random.seed(42)
 
 
 def equation_0(x):
-    '''f(x) = sin(x)'''
+    """f(x) = sin(x)"""
     return np.sin(x)
 
 
 def equation_1(x):
-    '''f(x) = 3 + 2x - 3x² + 2x³'''
-    return 3 + 2 * x - 3 * x ** 2 + x ** 3
+    """f(x) = 3 + 2x - 3x² + 2x³"""
+    return 3 + 2 * x - 3 * x ** 2 + 2 * x ** 3
 
 
 def equation_2(x):
-    '''f(x) = 1 / (3cos(x) + 2)'''
+    """f(x) = 1 / (3cos(x) + 2)"""
     return 1 / (3 * np.cos(x) + 2)
 
 
 def equation_e(x):
-    '''f(x) = x * e^(-x)'''
+    """f(x) = x * e^(-x)"""
     return x * np.e ** -x
 
 
 def equation_3(x, y):
-    '''f(x, y) = 4 + 2y + 2x + xy + x³y'''
+    """f(x, y) = 4 + 2y + 2x + xy + x³y"""
     return 4 + 2 * y + 2 * x + x * y + x ** 3 * y
 
 
@@ -40,7 +40,7 @@ def equation_3_2(xa, ya, a, b, c, d):
 
 
 def equation_4(x, y):
-    '''f(x,y) = y²/x²'''
+    """f(x, y) = y²/x²"""
     return y ** 2 / x ** 2
 
 
@@ -51,8 +51,8 @@ def equation_4_2(xa, ya, a, b, c, d):
 
 
 def equation_5(x, y):
-    '''f(x,y) = sqrt(x * x + y * y) + 3 * cos(sqrt(x * x + y * y)) + 5'''
-    return np.sqrt(x * x + y * y) + 3 * np.cos(np.sqrt(x*x + y*y)) + 5
+    """f(x, y) = sqrt(x * x + y * y) + 3 * cos(sqrt(x * x + y * y)) + 5"""
+    return np.sqrt(x * x + y * y) + 3 * np.cos(np.sqrt(x * x + y * y)) + 5
 
 
 def equation_5_2(xa, ya, a, b, c, d):
@@ -66,7 +66,7 @@ def estimate_ab(a, b, eps):
         a = int(a / np.pi) * np.pi
     elif abs(a % np.e) < eps:
         a = int(a / np.e) * np.e
-    if abs(b % np.pi) < np.pi:
+    if abs(b % np.pi) < eps:
         b = int(b / np.pi) * np.pi
     elif abs(b % np.e) < eps:
         b = int(b / np.e) * np.e
@@ -94,7 +94,7 @@ def calculate(a, b, num_samples, func):
 
 
 def calculate_integral(a, b, num_samples, num_iter, func):
-    '''Расчёт однократного интеграла'''
+    """Калькуляция однократного интеграла"""
     avg_sum = 0
     areas = []
     for i in range(0, num_iter):
@@ -114,26 +114,26 @@ def plot_func(func, a, b, integral):
     # график функции
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.set_ylabel("f(x)")
-    ax.set_xlabels("x")
+    ax.set_xlabel("x")
     ax.grid(True)
     ax.axhline(y=0, color="k", linewidth=0.5)
 
     ax.plot(x, y, "r", linewidth=1)
 
-    # Заштрихованная область
-    ix = np.linespace(a, b)
+    # заштрихованная область
+    ix = np.linspace(a, b)
     iy = func(ix)
-    verts = [(a,0), *zip(ix, iy), (b, 0)]
+    verts = [(a, 0), *zip(ix, iy), (b, 0)]
     poly = Polygon(verts, facecolor="0.9", edgecolor="0.5")
     ax.add_patch(poly)
     ax.text(0.6 * (a + b), 0.3, r"$\int_a^b f(x)\mathrm{d}x = $" + f"{round(integral, 5)}",
-            gorizontalalignment="center", fontsize=20)
+            horizontalalignment="center", fontsize=20)
 
     st.pyplot(fig)
 
-    st.write(f"Если взять случайную точку $x_i$ между $a={a}$ и $b={b}$."
+    st.write(f"Если взять случайную точку $x_i$ между $a={a}$ и $b={b}$. "
              r"Мы можем построить площадь прямоугольника, умножив $f(x_i)\cdot (b-a)$.")
-    # график для каждой точки
+    # графики для каждой точки
     x_rand = np.random.uniform(a, b, 9)
     fig, ax = plt.subplots(3, 3, figsize=(10, 6))
     for axs, x_i in zip(ax.reshape(-1), x_rand):
@@ -142,7 +142,7 @@ def plot_func(func, a, b, integral):
         poly = Polygon(verts, facecolor='0.9', edgecolor='0.5')
         axs.add_patch(poly)
         axs.plot(x_i, func(x_i), marker='o', color='b')
-    st.pyplot(fig)
+    st.pyplot(fig)  #
 
 
 def plot_histogram(areas):
@@ -165,7 +165,7 @@ def estimate_error(func_2, a, b, c, d, num_iter):
 
 
 def calculate_integral_double(func_2, a, b, c, d, n):
-    '''Расчёт двойного интеграла'''
+    """Калькуляция двойного интеграла"""
     fxy = (estimate_error(func_2, a, b, c, d, n))
 
     res = ((b - a) * (d - c) / n) * fxy
@@ -175,14 +175,14 @@ def calculate_integral_double(func_2, a, b, c, d, n):
 def plot_func_3d(func):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
-    x = y = np.arrange(-3.0, 3.0, 0.05)
+    x = y = np.arange(-3.0, 3.0, 0.05)
     X, Y = np.meshgrid(x, y)
     zs = np.array([func(x, y) for x, y in zip(np.ravel(X), np.ravel(Y))])
     Z = zs.reshape(X.shape)
     ax.plot_surface(X, Y, Z)
-    ax.set_xlable('X')
-    ax.set_ylable('Y')
-    ax.set_zlable('Z')
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
     st.write(fig)
 
 
@@ -191,27 +191,30 @@ def main():
     st.markdown("""**Тема:**
     Алгоритм и программная реализация метода Монте-Карло при вычислении однократных и двойных интегралов.""")
     st.markdown("""**Цель работы:** 
-        Получение навыков программной реализации метода Монте-Карло при вычислении однократных и двойных интегралов.""")
+    Получение навыков программной реализации метода Монте-Карло при вычислении однократных и двойных интегралов.""")
 
     description = """
-        Пусть интеграл (a, b, f (x)) представляет собой интеграл от a до b функции f (x) по x
-        Пусть среднее (f (x), a, b) представляет собой среднее значение функции на отрезке a, b
-        Используя вторую фундаментальную теорему исчисления среднее (f (x), a, b) = 1 (b-a) интеграл (a, b, f (x))
-        преобразовывая функцию, указанную во второй фундаментальной теореме исчисления
-        мы получаем (b-a) avg (f (x), a, b) = интеграл (a, b, f (x))
+    Пусть интеграл (a, b, f (x)) представляет собой интеграл от a до b функции f (x) по x
+    Пусть среднее (f (x), a, b) представляет собой среднее значение функции на отрезке a, b
+    Используя вторую фундаментальную теорему исчисления среднее (f (x), a, b) = 1 (b-a) интеграл (a, b, f (x))
+    преобразовывая функцию, указанную во второй фундаментальной теореме исчисления
+    мы получаем (b-a) avg (f (x), a, b) = интеграл (a, b, f (x))
 
-        Мы вычисляем среднее значение функции на интервале, используя несколько случайных выборок в данном интервале.
-        Затем мы используем это вычисленное среднее значение, чтобы найти интеграл, используя приведенное выше уравнение.
+    Мы вычисляем среднее значение функции на интервале, используя несколько случайных выборок в данном интервале.
+    Затем мы используем это вычисленное среднее значение, чтобы найти интеграл, используя приведенное выше уравнение.
 
-        Функции:
-        1. f(x) = 3 + 2x - 3x² + 2x³
-        на отрезке [0, 1]
-        2. f(x) = 1 / (3cos(x) + 2)
-        3. f(x, y) = 4 + 2y + 2x + xy + x³y
-        x -> от -1 до 1
-        y -> от 0 до 3
-        4. f(x, y) = y²/x²
-        """
+    Функции:
+    1. f(x) = 3 + 2x - 3x² + 2x³
+    на отрезке [0, 1]
+
+    2. f(x) = 1 / (3cos(x) + 2)
+
+    3. f(x, y) = 4 + 2y + 2x + xy + x³y
+    x -> от -1 до 1
+    y -> от 0 до 3
+
+    4. f(x, y) = y²/x²
+    """
 
     show_schema = st.checkbox("Показать описание")
     if show_schema:
@@ -317,16 +320,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
