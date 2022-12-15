@@ -41,7 +41,7 @@ def main():
     y5 = e2.number_input("y5", min_value=1, max_value=10, value=1, step=1)
     y6 = f2.number_input("y6", min_value=1, max_value=10, value=1, step=1)
 
-    p1 = a3.number_input("p1", min_value=1, max_value=10, value=1, step=.5)
+    p1 = a3.number_input("p1", min_value=1, max_value=10, value=1, step=1)
     p2 = b3.number_input("p2", min_value=1, max_value=10, value=1, step=1)
     p3 = c3.number_input("p3", min_value=1, max_value=10, value=1, step=1)
     p4 = d3.number_input("p4", min_value=1, max_value=10, value=1, step=1)
