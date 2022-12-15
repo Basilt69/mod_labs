@@ -41,19 +41,19 @@ def main():
     y5 = e2.number_input("y5", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
     y6 = f2.number_input("y6", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
 
-    z1 = a3.number_input("z1", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
-    z2 = b3.number_input("z2", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
-    z3 = c3.number_input("z3", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
-    z4 = d3.number_input("z4", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
-    z5 = e3.number_input("z5", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
-    z6 = f3.number_input("z6", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
+    z1 = a3.number_input("z1", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
+    z2 = b3.number_input("z2", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
+    z3 = c3.number_input("z3", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
+    z4 = d3.number_input("z4", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
+    z5 = e3.number_input("z5", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
+    z6 = f3.number_input("z6", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
 
-    p1 = a3.number_input("p1", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
-    p2 = b3.number_input("p2", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
-    p3 = c3.number_input("p3", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
-    p4 = d3.number_input("p4", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
-    p5 = e3.number_input("p5", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
-    p6 = f3.number_input("p6", min_value=1.0, max_value=10.0, value=1.0, step=0.25)
+    p1 = a3.number_input("p1", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
+    p2 = b3.number_input("p2", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
+    p3 = c3.number_input("p3", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
+    p4 = d3.number_input("p4", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
+    p5 = e3.number_input("p5", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
+    p6 = f3.number_input("p6", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
 
     x_array = [x1, x2, x3, x4, x5, x6]
     y_array = [y1, y2, y3, y4, y5, y6]
