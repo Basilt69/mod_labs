@@ -27,7 +27,7 @@ def main():
     e1, e2, e3 = st.columns(3)
     f1, f2, f3 = st.columns(3)
 
-    x1 = a1.number_input("x1", min_value=1, max_value=10, value=1, step=1)
+    x1 = a1.number_input("x1", min_value=1.0, max_value=10.0, value=1.0, step=0.5)
     x2 = b1.number_input("x2", min_value=1, max_value=10, value=1, step=1)
     x3 = c1.number_input("x3", min_value=1, max_value=10, value=1, step=1)
     x4 = d1.number_input("x4", min_value=1, max_value=10, value=1, step=1)
