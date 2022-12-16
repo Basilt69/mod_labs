@@ -5,7 +5,16 @@ import plotly.graph_objects as go
 import numpy as np
 
 
+def ols_2_dimensional(data, n):
+    # y = ax + b
+    # Y = AX
+
+    return
+
+
 def wls_2_dimensional(data, n):
+
+
     return
 
 
@@ -13,9 +22,8 @@ def plot(data):
     """ отрисовка графика """
     st.markdown("---")
     fig, ax = plt.subplots(111)
-    #data.plot.scatter(x="x", y="y", ax=ax)
-    ax.scatter(data['x'], data['y'])
-    st.write(fig)
+    data.plot.scatter(x="x", y="y", ax=ax)
+    st.pyplot(fig)
     st.markdown("---")
 
 
