@@ -26,7 +26,7 @@ def scatter_plot(x, y):
     fig = plt.figure(figsize=(10,4))
     plt.scatter(x,y)
 
-    st.ballons()
+    st.balloons()
     st.pyplot(fig)
     st.markdown("---")
 
