@@ -21,7 +21,7 @@ def wls_2_dimensional(data, n):
 def plot(data):
     """ отрисовка графика """
     st.markdown("---")
-    st.write(data)
+    st.write(data['x'])
     fig, ax = plt.subplots()
     data.plot.scatter(x="x", y="y", ax=ax)
     st.pyplot(fig)
