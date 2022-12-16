@@ -16,13 +16,7 @@ def ols_2_dimensional(x_array, y_array, n):
     X = np.linalg.inv(np.transpose(A)@A)@np.transpose(A)@y
     Y = np.array(x) * X[0] + X[1]
     st.write('Это коэффициента a',X[0],'а это коэффициент ', X[1])
-
-    fig = plt.figure(figsize=(10,4))
-    plt.plot(x, Y)
-    st.pyplot(fig)
-
-
-    return
+    return Y
 
 
 def wls_2_dimensional(data, n):
@@ -31,11 +25,12 @@ def wls_2_dimensional(data, n):
     return
 
 
-def scatter_plot(x, y):
+def scatter_plot(x, y, Y):
     """ отрисовка графика """
     st.markdown("---")
     fig = plt.figure(figsize=(10,4))
     plt.scatter(x,y)
+    plt.plot(x, Y)
 
     #st.balloons()
     st.pyplot(fig)
@@ -114,8 +109,9 @@ def main():
     result_data = pd.DataFrame(data=data).applymap("{0:.4f}".format)
     st.table(result_data.assign(hack="").set_index("hack"))
 
-    scatter_plot(x_array, y_array)
-    ols_2_dimensional(x_array, y_array,None)
+    Y = ols_2_dimensional(x_array, y_array, None)
+    scatter_plot(x_array, y_array, Y)
+
 
 
 
