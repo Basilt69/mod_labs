@@ -14,7 +14,7 @@ def plot(data):
     st.markdown("---")
     fig, ax = plt.subplots()
     data.plot.scatter(x="x", y="y", ax=ax)
-    st.pyplot(fig)
+    st.write(fig)
     st.markdown("---")
 
 
