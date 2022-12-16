@@ -96,7 +96,7 @@ def main():
     result_data = pd.DataFrame(data=data).applymap("{0:.4f}".format)
     st.table(result_data.assign(hack="").set_index("hack"))
 
-    plot(data)
+    plot(result_data)
 
 
 
