@@ -18,13 +18,15 @@ def wls_2_dimensional(data, n):
     return
 
 
-def plot(data):
+def scatter_plot(x, y):
     """ отрисовка графика """
     st.markdown("---")
-    x = data['x']
-    y = data['y']
-    fig, ax = plt.subplots()
-    data.plot.scatter(x=x, y=y, ax=ax)
+    #fig, ax = plt.subplots()
+    #data.plot.scatter(x=x, y=y, ax=ax)
+    fig = plt.figure(figsize=(10,4))
+    plt.scatter(x,y)
+
+    st.ballons()
     st.pyplot(fig)
     st.markdown("---")
 
@@ -101,7 +103,7 @@ def main():
     result_data = pd.DataFrame(data=data).applymap("{0:.4f}".format)
     st.table(result_data.assign(hack="").set_index("hack"))
 
-    plot(result_data)
+    scatter_plot(x_array, y_array)
 
 
 
