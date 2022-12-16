@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 import numpy as np
 
 
-def ols_2_dimensional(x_array, y_array):
+def ols_2_dimensional(x_array, y_array, n):
     # y = ax + b
     # Y = AX
     # X =
@@ -108,7 +108,7 @@ def main():
     st.table(result_data.assign(hack="").set_index("hack"))
 
     scatter_plot(x_array, y_array)
-    ols_2_dimensional(result_data,None)
+    ols_2_dimensional(x_array, y_array,None)
 
 
 
