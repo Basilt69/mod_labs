@@ -17,7 +17,10 @@ def ols_2_dimensional(x_array, y_array, n):
     Y = np.array(x) * X[0] + X[1]
     st.write('Это коэффициента a',X[0],'а это коэффициент ', X[1])
 
+    fig = plt.figure(figsize=(10,4))
     plt.plot(x, Y)
+    st.pyplot(fig)
+
 
     return
 
