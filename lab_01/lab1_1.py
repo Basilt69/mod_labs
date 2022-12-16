@@ -16,10 +16,11 @@ def plot(x_array, y_array):
     y = y_array
 
     fig = go.Figure()
-    fig.add_trace(go.Scatter(
+
+    '''fig.add_trace(go.Scatter(
         x=x,
         y=y,
-        ))
+        ))'''
 
     st.write(fig)
     st.markdown("---")
