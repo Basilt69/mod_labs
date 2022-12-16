@@ -8,7 +8,13 @@ import numpy as np
 def ols_2_dimensional(data, n):
     # y = ax + b
     # Y = AX
-
+    # X =
+    x = data['x']
+    y = data['y']
+    A = np.ones(shape=(6,2))
+    A[:,0] = x
+    X = np.linalg.inv(np.transpose(A)@A)@np.transpose(A)@y
+    st.write(X)
     return
 
 
@@ -21,12 +27,10 @@ def wls_2_dimensional(data, n):
 def scatter_plot(x, y):
     """ отрисовка графика """
     st.markdown("---")
-    #fig, ax = plt.subplots()
-    #data.plot.scatter(x=x, y=y, ax=ax)
     fig = plt.figure(figsize=(10,4))
     plt.scatter(x,y)
 
-    st.balloons()
+    #st.balloons()
     st.pyplot(fig)
     st.markdown("---")
 
@@ -104,6 +108,7 @@ def main():
     st.table(result_data.assign(hack="").set_index("hack"))
 
     scatter_plot(x_array, y_array)
+    ols_2_dimensional(result_data,None)
 
 
 
