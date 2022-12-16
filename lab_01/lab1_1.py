@@ -26,7 +26,7 @@ def main():
     d1, d2, d3, d4 = st.columns(4)
     e1, e2, e3, e4 = st.columns(4)
     f1, f2, f3, f4 = st.columns(4)
-    g1 = st.columns(2) # степень полинома
+    g1, g2, g3, g4 = st.columns(4) # степень полинома
 
     n = g1.number_input("Введите степень полинома n.", min_value=1, max_value=5, value=1, step=1)
 
