@@ -15,14 +15,14 @@ def plot(x_array, y_array):
     x = x_array
     y = y_array
 
-    fig = plt.plot(x,y,"*", figsize=(10,6))
+    scatter_fig = plt.figure(figsize=(10,6))
 
-    '''fig.add_trace(go.Scatter(
-        x=x,
-        y=y,
-        ))'''
+    scatter_ax = scatter_fig.add_subplot(111)
 
-    st.pyplot(fig)
+    plot.scatter(x=x_array, y=y_array, ax=scatter_ax)
+
+
+    st.pyplot(scatter_fig)
     st.markdown("---")
 
 
