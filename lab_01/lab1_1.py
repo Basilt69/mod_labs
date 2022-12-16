@@ -5,12 +5,12 @@ import plotly.graph_objects as go
 import numpy as np
 
 
-def ols_2_dimensional(data, n):
+def ols_2_dimensional(x_array, y_array):
     # y = ax + b
     # Y = AX
     # X =
-    x = data['x']
-    y = data['y']
+    x = x_array
+    y = y_array
     A = np.ones(shape=(6,2))
     A[:,0] = x
     X = np.linalg.inv(np.transpose(A)@A)@np.transpose(A)@y
