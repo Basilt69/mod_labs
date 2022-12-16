@@ -1,7 +1,30 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import numpy as np
+
+
+def wls_2_dimensional(data, n):
+    return
+
+
+def plot(x_array, y_array):
+    """ отрисовка графика """
+    st.markdown("---")
+    x = x_array
+    y = y_array
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=x,
+        y=y,
+        mode='lines',
+    ))
+
+    st.write(fig)
+    st.markdown("---")
+
 
 
 
@@ -62,6 +85,7 @@ def main():
     y_array = [y1, y2, y3, y4, y5, y6]
     z_array = [z1, z2, z3, z4, z5, z6]
     p_array = [p1, p2, p3, p4, p5, p6]
+
     st.subheader("Таблица функции с количеством узлов N:")
 
     data = {
@@ -73,6 +97,10 @@ def main():
 
     result_data = pd.DataFrame(data=data).applymap("{0:.4f}".format)
     st.table(result_data.assign(hack="").set_index("hack"))
+
+    plot(x_array, y_array)
+
+
 
 
 
