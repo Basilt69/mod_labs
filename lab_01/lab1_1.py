@@ -29,11 +29,11 @@ def wls_2_dimensional(x_array, y_array, p_array, n):
     A = np.ones(shape=(6, 2))
     A[:, 0] = x
     W = np.identity(6)
-    st.write(W)
-    st.write(p_array)
+    #st.write(W)
+    #st.write(p_array)
     for i in range(6):
         W[i][i] = p_array[i]
-    st.write(W)
+    #st.write(W)
     X = np.linalg.inv(np.transpose(A) @ W @ A) @ np.transpose(A) @ W @ y
     Y = np.array(x) * X[0] + X[1]
     st.write('Коэффициента a', X[0])
