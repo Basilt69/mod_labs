@@ -19,8 +19,7 @@ def plot(x_array, y_array):
     fig.add_trace(go.Scatter(
         x=x,
         y=y,
-        mode='lines',
-    ))
+        ))
 
     st.write(fig)
     st.markdown("---")
