@@ -14,7 +14,7 @@ def ols_2_dimensional(x_array, y_array, n):
     A = np.ones(shape=(6,2))
     A[:,0] = x
     X = np.linalg.inv(np.transpose(A)@A)@np.transpose(A)@y
-    Y = X[0]*x + X[1]
+    Y = x * X[0] + X[1]
     st.write('Это коэффициента a',X[0],'а это коэффициент ', X[1])
 
     plt.scatter(x, Y)
