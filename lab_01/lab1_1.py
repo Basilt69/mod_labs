@@ -29,6 +29,8 @@ def wls_2_dimensional(x_array, y_array, p_array, n):
     A = np.ones(shape=(6, 2))
     A[:, 0] = x
     W = np.identity(6)
+    st.write(W)
+    st.write(p_array)
     for i in range(6):
         W[i][i] = p_array[i]
     st.write(W)
