@@ -13,7 +13,8 @@ def plot(data):
     """ отрисовка графика """
     st.markdown("---")
     fig, ax = plt.subplots(111)
-    data.plot.scatter(x="x", y="y", ax=ax)
+    #data.plot.scatter(x="x", y="y", ax=ax)
+    ax.scatter(data['x'], data['y'])
     st.write(fig)
     st.markdown("---")
 
