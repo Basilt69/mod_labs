@@ -20,10 +20,24 @@ def ols_2_dimensional(x_array, y_array, n):
     return Y
 
 
-def wls_2_dimensional(data, n):
+def wls_2_dimensional(x_array, y_array, p_array, n):
+    # y = ax + b
+    # Y = AX
+    # X =
+    x = x_array
+    y = y_array
+    A = np.ones(shape=(6, 2))
+    A[:, 0] = x
+    W = np.identity(6)
+    for i in range(6):
+        W[i][i] = p_array[i]
+    st.write(W)
+    X = np.linalg.inv(np.transpose(A) @ W @ A) @ np.transpose(A) @ W @ y
+    Y = np.array(x) * X[0] + X[1]
+    st.write('Коэффициента a', X[0])
+    st.write('Коэффициент b', X[1])
+    return Y
 
-
-    return
 
 
 def scatter_plot(x, y, Y):
@@ -110,7 +124,11 @@ def main():
     result_data = pd.DataFrame(data=data).applymap("{0:.4f}".format)
     st.table(result_data.assign(hack="").set_index("hack"))
 
+
     Y = ols_2_dimensional(x_array, y_array, None)
+
+    Y = wls_2_dimensional(x_array, y_array,p_array, None)
+
     scatter_plot(x_array, y_array, Y)
 
 
