@@ -10,7 +10,7 @@ def ols_2_dimensional(x_array, y_array, n):
     # Y = AX
     # X =
     x = x_array
-    y = y_array8
+    y = y_array
     A = np.ones(shape=(6,2))
     A[:,0] = x
     X = np.linalg.inv(np.transpose(A)@A)@np.transpose(A)@y
@@ -48,12 +48,13 @@ def wls_2_dimensional_2(x_array, y_array, p_array, n):
     mtx_size = n + 1
     A = np.ones(shape=(mtx_size, mtx_size))
     st.write(A)
+
     '''X = np.linalg.inv(np.transpose(
         A) @ W @ A) @ np.transpose(A) @ W @ y
     Y = np.array(x) * X[0] + X[1]
     st.write('Коэффициента a', X[0])
     st.write('Коэффициент b', X[1])'''
-    return Y
+    return
 
 
 
