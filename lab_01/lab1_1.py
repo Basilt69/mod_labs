@@ -145,7 +145,7 @@ def main():
 
     Y = ols_2_dimensional(x_array, y_array, None)
 
-    Y = wls_2_dimensional_2(x_array, y_array,p_array, None)
+    Y = wls_2_dimensional_2(x_array, y_array,p_array, n)
 
     scatter_plot(x_array, y_array, Y)
 
