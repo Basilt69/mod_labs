@@ -45,9 +45,18 @@ def wls_2_dimensional(x_array, y_array, p_array, n):
 def wls_2_dimensional_2(x_array, y_array, p_array, n):
     # y = ax + b
     # Y = AX
+    x = x_array
+    y = y_array
+    p = p_array
     mtx_size = n + 1
     A = np.ones(shape=(mtx_size, mtx_size))
     st.write(A)
+    for i in range(mtx_size + 2):
+        sum = 0
+        for j in range(len(x_array)):
+            sum += pow(x[j], i) * p[j]
+        A[i][i]
+
 
     '''X = np.linalg.inv(np.transpose(
         A) @ W @ A) @ np.transpose(A) @ W @ y
@@ -118,12 +127,12 @@ def main():
     z5 = e3.number_input("z5", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
     z6 = f3.number_input("z6", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
 
-    p1 = a3.number_input("p1", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
-    p2 = b3.number_input("p2", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
-    p3 = c3.number_input("p3", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
-    p4 = d3.number_input("p4", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
-    p5 = e3.number_input("p5", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
-    p6 = f3.number_input("p6", min_value=0.0, max_value=10.0, value=0.0, step=0.25)
+    p1 = a3.number_input("p1", min_value=0.0, max_value=10.0, value=0.0, step=0.5)
+    p2 = b3.number_input("p2", min_value=0.0, max_value=10.0, value=0.0, step=0.5)
+    p3 = c3.number_input("p3", min_value=0.0, max_value=10.0, value=0.0, step=0.5)
+    p4 = d3.number_input("p4", min_value=0.0, max_value=10.0, value=0.0, step=0.5)
+    p5 = e3.number_input("p5", min_value=0.0, max_value=10.0, value=0.0, step=0.5)
+    p6 = f3.number_input("p6", min_value=0.0, max_value=10.0, value=0.0, step=0.5)
 
     x_array = [x1, x2, x3, x4, x5, x6]
     y_array = [y1, y2, y3, y4, y5, y6]
