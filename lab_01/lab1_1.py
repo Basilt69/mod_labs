@@ -113,7 +113,7 @@ def wls_2_dimensional_3(x_array, y_array, p_array, n):
     A = create_a_mtrx(x_array, p_array, n)
     st.write('Матрица А')
     st.write(A)
-    st.write('Ьатрица b')
+    st.write('Матрица b')
     b = create_b_mtrx(x_array, y_array, p_array, n)
     st.write(b)
 
@@ -221,11 +221,12 @@ def main():
     st.table(result_data.assign(hack="").set_index("hack"))
 
 
-    #Y = ols_2_dimensional(x_array, y_array, None)
-
-    Y = wls_2_dimensional_3(x_array, y_array,p_array, n)
-
-    scatter_plot(x_array, y_array, Y)
+    test = st.selectbox("Выберите вид среднеквадратичного приближения", ("Двумерное", "Трёхмерное"))
+    if test == "Двумерное":
+        Y = wls_2_dimensional_3(x_array, y_array,p_array, n)
+        scatter_plot(x_array, y_array, Y)
+    elif test == "Трёхмерное":
+        st.write("Still in preogress ...")
 
 
 
