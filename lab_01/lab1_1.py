@@ -4,65 +4,6 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import numpy as np
 
-'''
-def ols_2_dimensional(x_array, y_array, n):
-    # y = ax + b
-    # Y = AX
-    # X =
-    x = x_array
-    y = y_array
-    A = np.ones(shape=(6,2))
-    A[:,0] = x
-    X = np.linalg.inv(np.transpose(A)@A)@np.transpose(A)@y
-    Y = np.array(x) * X[0] + X[1]
-    st.write('Коэффициента a',X[0])
-    st.write('Коэффициент b', X[1])
-    return Y
-
-
-def wls_2_dimensional(x_array, y_array, p_array, n):
-    # y = ax + b
-    # Y = AX
-    # X =
-    x = x_array
-    y = y_array
-    A = np.ones(shape=(6, 2))
-    A[:, 0] = x
-    W = np.identity(6)
-    #st.write(W)
-    #st.write(p_array)
-    for i in range(6):
-        W[i][i] = p_array[i]
-    #st.write(W)
-    X = np.linalg.inv(np.transpose(
-        A) @ W @ A) @ np.transpose(A) @ W @ y
-    Y = np.array(x) * X[0] + X[1]
-    st.write('Коэффициента a', X[0])
-    st.write('Коэффициент b', X[1])
-    return Y
-
-def wls_2_dimensional_2(x_array, y_array, p_array, n):
-    # y = ax + b
-    # Y = AX
-    x = x_array
-    y = y_array
-    p = p_array
-    mtx_size = n + 1
-    A = np.ones(shape=(mtx_size, mtx_size))
-    st.write(A)
-    for i in range(mtx_size + 2):
-        sum = 0
-        for j in range(len(x_array)):
-            sum += pow(x[j], i) * p[j]
-        A[i][i]
-
-
-    X = np.linalg.inv(np.transpose(
-        A) @ W @ A) @ np.transpose(A) @ W @ y
-    Y = np.array(x) * X[0] + X[1]
-    st.write('Коэффициента a', X[0])
-    st.write('Коэффициент b', X[1])
-    return'''
 
 def wls_2_dimensional_3(x_array, y_array, p_array, n):
     def create_a_mtrx(x_array, p_array, n):
@@ -153,7 +94,7 @@ def math(x_array, y_array, n):
     st.markdown("---")
 
 
-'''def scatter_plot(x, y, Y):
+def scatter_plot(x, y, Y):
     """ отрисовка графика """
     st.markdown("---")
     fig = plt.figure(figsize=(10,4))
@@ -162,7 +103,7 @@ def math(x_array, y_array, n):
 
     #st.balloons()
     st.pyplot(fig)
-    st.markdown("---")'''
+    st.markdown("---")
 
 
 
@@ -241,7 +182,8 @@ def main():
     test = st.selectbox("Выберите вид среднеквадратичного приближения", ("Двумерное", "Трёхмерное"))
     if test == "Двумерное":
         Y = wls_2_dimensional_3(x_array, y_array,p_array, n)
-        scatter_plot(x_array, y_array, Y)
+        #scatter_plot(x_array, y_array, Y)
+        math(x_array, y_array, n)
     elif test == "Трёхмерное":
         st.write("Still in progress ...")
 
