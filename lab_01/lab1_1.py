@@ -137,6 +137,20 @@ def wls_2_dimensional_3(x_array, y_array, p_array, n):
 
     return Y
 
+def math(x_array, y_array, n):
+
+    # полином 1 степени по функции
+    p = np.polyfit(x_array, y_array, n)
+    # подставляем значения x к полученному полиному
+    ya = np.polyval(p, x_array)
+
+    st.markdown("---")
+    fig = plt.figure(figsize=(10, 4))
+
+    plt.scatter(x_array, y_array)
+    plt.plot(x_array, ya, c='r')
+    st.pyplot(fig)
+    st.markdown("---")
 
 
 def scatter_plot(x, y, Y):

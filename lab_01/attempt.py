@@ -1,19 +1,20 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-n=5
+#n=5
 
 x_array = [1, 2, 3, 4, 5 ,6]
-y_array = [1, 4, 5, 6, 7, 8]
-z_array = [1, 4, 6, 7, 8, 9,
-           5, 5, 6, 7, 8, 9,
-           4, 4, 3, 7, 8, 10,
-           2, 4, 5, 6, 7, 9,
-           1, 5, 6, 7, 8, 9,
-           2, 3, 4, 5, 6, 7]
+y_array = [1, 40, 5, 6, 7, 8]
+z_array = [[1, 4, 6, 7, 8, 9],
+           [5, 5, 6, 7, 8, 9],
+           [4, 4, 3, 7, 8, 10],
+           [2, 4, 5, 6, 7, 9],
+           [1, 5, 6, 7, 8, 9],
+           [2, 3, 4, 5, 6, 7]]
+#z_array = [1, 4, 6, 7, 8, 9]
 p_array = [1, 3, 5, 7, 3, 4]
 
-def create_a_mtrx(x_array, p_array, n):
+'''def create_a_mtrx(x_array, p_array, n):
     A = np.ones((n+1, n+1))
     A[0][0] = np.sum(p_array)
 
@@ -91,4 +92,85 @@ def scatter_plot(x, y, Y):
     plt.plot(x, Y, c='r')
     plt.show()
 
-scatter_plot(x_array, y_array, Y)
+scatter_plot(x_array, y_array, Y)'''
+
+from matplotlib import pyplot as plt
+import numpy as np
+#функция
+x = np.arange(0.1, 10, 1*(10**-2))
+y = np.sin(x) + np.log(x)
+#полином 1 степени по функции
+p = np.polyfit(x_array,y_array, 2)
+#подставляем значения x к полученному полиному
+ya = np.polyval(p, x_array)
+
+plt.scatter(x_array, y_array)
+plt.plot(x_array, ya)
+
+
+'''import sys
+import string
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+f = open('sdc_point_cloud.txt', 'r')
+i=1
+a = [0]*19280
+x = [0]*19280
+y = [0]*19280
+z = [0]*19280
+for line in f:
+    a = line.split("\t")
+    if i>2:
+        x[i-3] = a[0]
+        y[i-3] = a[1]
+        z[i-3] = a[2]
+    #a[i] = line.split("\n")
+    i = i+1
+print(x[1])
+#print(i)
+
+n=10000
+x1 = [0]*n
+y1 = [0]*n
+z1 = [0]*n
+i = 0
+while i<n:
+    x1[i]=np.float32(x[i]);
+    y1[i]=np.float32(y[i]);
+    z1[i]=np.float32(z[i]);
+    #print(y[i])
+    i=i+1
+
+# Plot the surface
+#x = np.linspace(-np.pi, np.pi, 50)
+#y = x
+#z = np.cos(x)
+
+#print(x[1])
+
+fig = plt.figure()
+ax = fig.add_subplot(211, projection='3d')
+ax1 = fig.add_subplot(212, projection='3d')
+
+p = np.polyfit(x_array,y_array, 1)
+#подставляем значения x к полученному полиному
+ya = np.polyval(p, x_array)
+
+
+ax.scatter(x_array, y_array, z_array, c='r', marker='o')
+ax1.scatter(x_array, ya, z_array, c='r', marker='o')
+
+ax.set_xlabel('X Label')
+ax.set_ylabel('Y Label')
+ax.set_zlabel('Z Label')
+
+ax1.set_xlabel('X1 Label')
+ax1.set_ylabel('Y1 Label')
+ax1.set_zlabel('Z1 Label')
+
+plt.show()'''
+
+plt.show()
