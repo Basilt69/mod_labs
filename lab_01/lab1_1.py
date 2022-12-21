@@ -183,7 +183,7 @@ def main():
     if test == "Двумерное":
         Y = wls_2_dimensional_3(x_array, y_array,p_array, n)
         #scatter_plot(x_array, y_array, Y)
-        math(x_array, y_array, n)
+        math(x_array, y_array, p_array, n)
     elif test == "Трёхмерное":
         st.write("Still in progress ...")
 
