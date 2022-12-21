@@ -94,22 +94,6 @@ def math(x_array, y_array, p_array, n):
     st.markdown("---")
 
 
-def scatter_plot(x, y, Y):
-    """ отрисовка графика """
-    st.markdown("---")
-    fig = plt.figure(figsize=(10,4))
-    plt.scatter(x,y)
-    plt.plot(x, Y, c='r')
-
-    #st.balloons()
-    st.pyplot(fig)
-    st.markdown("---")
-
-
-
-
-
-
 
 def main():
     st.markdown("### Лабораторная работа 1")
