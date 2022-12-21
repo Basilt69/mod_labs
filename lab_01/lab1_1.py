@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import numpy as np
 
-
+'''
 def ols_2_dimensional(x_array, y_array, n):
     # y = ax + b
     # Y = AX
@@ -41,7 +41,6 @@ def wls_2_dimensional(x_array, y_array, p_array, n):
     st.write('Коэффициент b', X[1])
     return Y
 
-
 def wls_2_dimensional_2(x_array, y_array, p_array, n):
     # y = ax + b
     # Y = AX
@@ -58,12 +57,12 @@ def wls_2_dimensional_2(x_array, y_array, p_array, n):
         A[i][i]
 
 
-    '''X = np.linalg.inv(np.transpose(
+    X = np.linalg.inv(np.transpose(
         A) @ W @ A) @ np.transpose(A) @ W @ y
     Y = np.array(x) * X[0] + X[1]
     st.write('Коэффициента a', X[0])
-    st.write('Коэффициент b', X[1])'''
-    return
+    st.write('Коэффициент b', X[1])
+    return'''
 
 def wls_2_dimensional_3(x_array, y_array, p_array, n):
     def create_a_mtrx(x_array, p_array, n):
