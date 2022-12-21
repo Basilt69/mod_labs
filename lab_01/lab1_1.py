@@ -111,7 +111,11 @@ def wls_2_dimensional_3(x_array, y_array, p_array, n):
         return b
 
     A = create_a_mtrx(x_array, p_array, n)
+    st.write('Матрица А')
+    st.write(A)
+    st.write('Ьатрица b')
     b = create_b_mtrx(x_array, y_array, p_array, n)
+    st.write(b)
 
     a_vec = np.linalg.inv(A) @ b
     if n == 1:
