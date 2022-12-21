@@ -122,7 +122,7 @@ def plot_func_3d(x_array, y_array, z_array, Y):
     x = x_array
     y = y_array
     x1, y1 = np.meshgrid(x, y)
-    z1 = np.array(Y @ z_array)
+    z1 = np.array(Y[0] @ z_array)
     #zs = np.array([func(x, y) for x, y in zip(np.ravel(X), np.ravel(Y))])
     Z = z1.reshape(x1.shape)
     ax.plot_surface(x1, y1, Z)
