@@ -112,7 +112,7 @@ def wls_3dimensional_1(x, y, z, p, n):
     model = LinearRegression()
     model.fit(x_poly, data_yz, sample_weight=p)
     y_poly_pred = model.predict(x_poly)
-    st.write(y_poly_pred)
+    #st.write(y_poly_pred)
     return y_poly_pred
 
 
@@ -212,6 +212,7 @@ def main():
         st.write("Матрица Z")
         Y = wls_3dimensional_1(x_array, y_array, z_array, p_array, n)
         st.write(Y)
+        plot_func_3d(x_array, y_array, z_array,Y)
 
 
 
