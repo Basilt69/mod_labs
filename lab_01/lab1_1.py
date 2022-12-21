@@ -153,7 +153,7 @@ def math(x_array, y_array, n):
     st.markdown("---")
 
 
-def scatter_plot(x, y, Y):
+'''def scatter_plot(x, y, Y):
     """ отрисовка графика """
     st.markdown("---")
     fig = plt.figure(figsize=(10,4))
@@ -162,7 +162,7 @@ def scatter_plot(x, y, Y):
 
     #st.balloons()
     st.pyplot(fig)
-    st.markdown("---")
+    st.markdown("---")'''
 
 
 
