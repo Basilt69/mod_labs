@@ -130,6 +130,8 @@ def plot_func_3d(x_array, y_array, z_array, Y):
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
     st.write(fig)
+    st.pyplot(fig)
+    st.markdown("---")
 
 
 def main():
