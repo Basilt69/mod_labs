@@ -121,10 +121,11 @@ def plot_func_3d(x_array, y_array, z_array, Y):
     ax = fig.add_subplot(111, projection='3d')
     x = x_array
     y = y_array
-    X, Y = np.meshgrid(x, y)
+    x1, y1 = np.meshgrid(x, y)
+    z1 = np.array(Y * z_array)
     #zs = np.array([func(x, y) for x, y in zip(np.ravel(X), np.ravel(Y))])
-    #Z = zs.reshape(X.shape)
-    #ax.plot_surface(X, Y, Z)
+    Z = z1.reshape(x1.shape)
+    ax.plot_surface(x1, y1, Z)
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
@@ -205,7 +206,7 @@ def main():
         #scatter_plot(x_array, y_array, Y)
         math(x_array, y_array, p_array, n)
     elif test == "Трёхмерное":
-        st.write("Процессе доработки...")
+        st.write("В процессе доработки...")
         st.write("Матрица Z")
         Y = wls_3dimensional_1(x_array, y_array, z_array, p_array, n)
         st.write(Y)
