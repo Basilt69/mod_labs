@@ -117,7 +117,10 @@ def wls_2_dimensional_3(x_array, y_array, p_array, n):
     b = create_b_mtrx(x_array, y_array, p_array, n)
     st.write(b)
 
+
     a_vec = np.linalg.inv(A) @ b
+    st.write('Вектор a')
+    st.write(a_vec)
     if n == 1:
         Y = np.array(x_array) * a_vec[0][0] + a_vec[1][0]
     elif n == 2:
@@ -226,7 +229,7 @@ def main():
         Y = wls_2_dimensional_3(x_array, y_array,p_array, n)
         scatter_plot(x_array, y_array, Y)
     elif test == "Трёхмерное":
-        st.write("Still in preogress ...")
+        st.write("Still in progress ...")
 
 
 

@@ -1,10 +1,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-n=1
+n=5
 
 x_array = [1, 2, 3, 4, 5 ,6]
 y_array = [1, 4, 5, 6, 7, 8]
+z_array = [1, 4, 6, 7, 8, 9,
+           5, 5, 6, 7, 8, 9,
+           4, 4, 3, 7, 8, 10,
+           2, 4, 5, 6, 7, 9,
+           1, 5, 6, 7, 8, 9,
+           2, 3, 4, 5, 6, 7]
 p_array = [1, 3, 5, 7, 3, 4]
 
 def create_a_mtrx(x_array, p_array, n):
