@@ -95,7 +95,7 @@ def math(x_array, y_array, p_array, n):
     st.markdown("---")
 
 
-def wls_3dimensional_1(x, y, z, n):
+def wls_3dimensional_1(x, y, z, p, n):
     # sort data to avoid plotting problems
     x, y, z = zip(*sorted(zip(x, y, z)))
 
@@ -110,7 +110,7 @@ def wls_3dimensional_1(x, y, z, n):
     x_poly = polynomial_features.fit_transform(x[:, np.newaxis])
 
     model = LinearRegression()
-    model.fit(x_poly, data_yz)
+    model.fit(x_poly, data_yz, sample_weight=p)
     y_poly_pred = model.predict(x_poly)
     st.write(y_poly_pred)
     return y_poly_pred
@@ -205,8 +205,9 @@ def main():
         #scatter_plot(x_array, y_array, Y)
         math(x_array, y_array, p_array, n)
     elif test == "Трёхмерное":
-        st.write("Still in progress ...")
-        Y = wls_3dimensional_1(x_array, y_array, z_array, n)
+        st.write("Процессе доработки...")
+        st.write("Матрица Z")
+        Y = wls_3dimensional_1(x_array, y_array, z_array, p_array, n)
         st.write(Y)
 
 
