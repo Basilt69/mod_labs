@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import plotly.graph_objects as go
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
 import numpy as np
 
 
@@ -94,6 +95,41 @@ def math(x_array, y_array, p_array, n):
     st.markdown("---")
 
 
+def wls_3dimensional_1(x, y, z, n):
+    # sort data to avoid plotting problems
+    x, y, z = zip(*sorted(zip(x, y, z)))
+
+    x = np.array(x)
+    y = np.array(y)
+    z = np.array(z)
+
+    data_yz = np.array([y, z])
+    data_yz = data_yz.transpose()
+
+    polynomial_features = PolynomialFeatures(degree=n)
+    x_poly = polynomial_features.fit_transform(x[:, np.newaxis])
+
+    model = LinearRegression()
+    model.fit(x_poly, data_yz)
+    y_poly_pred = model.predict(x_poly)
+    st.write(y_poly_pred)
+    return y_poly_pred
+
+
+def plot_func_3d(x_array, y_array, z_array, Y):
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    x = x_array
+    y = y_array
+    X, Y = np.meshgrid(x, y)
+    #zs = np.array([func(x, y) for x, y in zip(np.ravel(X), np.ravel(Y))])
+    #Z = zs.reshape(X.shape)
+    #ax.plot_surface(X, Y, Z)
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+    st.write(fig)
+
 
 def main():
     st.markdown("### Лабораторная работа 1")
@@ -170,6 +206,8 @@ def main():
         math(x_array, y_array, p_array, n)
     elif test == "Трёхмерное":
         st.write("Still in progress ...")
+        Y = wls_3dimensional_1(x_array, y_array, z_array, n)
+        st.write(Y)
 
 
 
